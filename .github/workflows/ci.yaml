@@ -24,4 +24,15 @@ jobs:
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets. DOCKERHUB_USERNAME }}" --password-stdin
       - name: Push to DockerHub
         run: |
-          docker push cykim329/devops_projects:${{ env.SHORT_SHA }} 
+          docker push cykim329/devops_projects:${{ env.SHORT_SHA }}
+      - name: Configure Git Author
+        run: |
+          git config --local user.email "cykim329@gmail.com"
+          git config --local user.name "cykim329"
+      
+      - name: Update Helm Chart with new image tag
+        run: |
+          sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./complete-devops-project-time-printer/values.yaml
+          git add ./complete-devops-project-time-printer/values.yaml
+          git commit -m "updated image tag to ${{ env.SHORT_SHA }}"
+          git push

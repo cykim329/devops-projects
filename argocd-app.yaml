@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "https://github.com/cykim329/DevOps_Projects.git"
+    repoURL: "https://github.com/cykim329/DevOps_Projects"
     targetRevision: HEAD
     path: complete-devops-project-time-printer
   destination:

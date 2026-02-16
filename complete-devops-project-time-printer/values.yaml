@@ -1,6 +1,6 @@
 image:
   repository: nginx
-  tag: latest
+  tag: 3f07cc9
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP

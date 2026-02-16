@@ -1,5 +1,5 @@
 image:
-  repository: cykim329/devopsps_projects
+  repository: cykim329/devops_projects
   tag: c12f4ae
   pullPolicy: IfNotPresent
 service:
